@@ -110,7 +110,7 @@ $avatar-size: 48px;
 }
 
 .card .fa-heart{
-  color: mediumvioletred;
+  color: #f44336;
   display: none;
 }
 
@@ -218,4 +218,22 @@ $avatar-size: 48px;
   .fa-heart {
     display: inline-block;
   }
+}
+.like-heart{
+  font-size: 10em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  transition: all .1s ease;
+  opacity: 0;
+  
+&.liked{
+ color: $platzigram-red;
+  font-size: 12em;
+  display: block;
+  transition: all .5s ease;
+  opacity: 1;
+}
 }
