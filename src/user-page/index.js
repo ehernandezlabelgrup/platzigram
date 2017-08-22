@@ -8,7 +8,22 @@ page('/:username', header, loadUser, function (ctx, next){
   var main = document.getElementById('main-container');
   title(`PlatziGram - ${ctx.params.username}`)
   empty(main).appendChild(template(ctx.user))
+    $('.materialboxed').materialbox();
+
 })
+
+page('/:username/:id', loadUser, function(ctx, next){
+	var main = document.getElementById('main-container');
+	title(`Platzigram - ${ctx.params.username}`);
+	empty(main).appendChild(template(ctx.user));	 
+	 $('.modal').modal({
+     complete: function(){
+       page(`/${ctx.params.username}`)
+     }
+   });
+	 $(`#modal${ctx.params.id}`).modal('open');
+  $('.materialboxed').materialbox();
+});
 
 async function loadUser(ctx, next){
   try {

@@ -3,6 +3,17 @@ $secondary-color: #125688;
 $platzigram-red: #f44336;
 @import "node_modules/materialize-css/sass/materialize.scss";
 @import "./loader";
+
+@mixin prefix($property, $value, $vendors: webkit moz ms o) {
+  @if $vendors {
+    @each $vendor in $vendors {
+      #{"-" + $vendor + "-" + $property}: #{$value};
+    }
+  }
+  #{$property}: #{$value};
+}
+
+
 body{
   background: #fafafa;
   color: #125688;
@@ -154,13 +165,22 @@ $avatar-size: 48px;
     margin-bottom: 20px;
     position: relative;
 
-    .picture {
-      margin-bottom: 20px;
-      display: block;
-      max-width: 100%;
-      max-height: 100%;
-    }
-
+//    .picture {
+//          max-height: 90%;
+//      margin-bottom: 20px;
+//      display: block;
+//      max-width: 100%;
+//      max-height: 100%;
+//   }
+//    &:hover {
+//          .picture {
+//            @include prefix(filter, blur(5px) grayscale(100%));
+//          }
+//
+//          .likes {
+//            display: flex;
+//          }
+//        }
     .likes {
       position: absolute;
       top: 0;
@@ -180,5 +200,22 @@ $avatar-size: 48px;
       margin-right: 8px;
       display: inline-block;
     }
+  }
+}
+.fa-heart-o {
+  color: $secondary-color;
+}
+
+.fa-heart {
+  color: $platzigram-red;
+}
+.modal {
+  img {
+    max-height: 100%;
+    max-width: 90%;
+  }
+
+  .fa-heart {
+    display: inline-block;
   }
 }

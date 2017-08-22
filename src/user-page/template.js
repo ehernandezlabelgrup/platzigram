@@ -22,9 +22,19 @@ module.exports = function (user) {
           
           return yo `<div class="col s12 m6 l4">
             <div class="picture-container">
-              <img src="${picture.src}" class="picture">
+              <img src="${picture.src}" class="picture materialboxed responsive-img" data-caption="${translate('likes',{likes: picture.likes})}">
               <div class="likes"><i class="fa fa-heart"></i> ${picture.likes}</div>
             </div>
+              <div id="modal${picture.id}" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                  <img src ="${picture.src}">
+                </div>
+                <div class="modal-footer">
+                  <div class="btn btn-flat likes">
+                    <i class="fa fa-heart"> </i> ${translate('likes',{likes: picture.likes})}
+                  </div>
+                </div>
+              </div>
           </div>`;
         })}
       </div>
@@ -33,3 +43,8 @@ module.exports = function (user) {
 
   return layout (el);
 }
+
+//<a href="/${user.username}/${picture.id}" class="picture-container">
+//  <img src="${picture.src}" class="picture">
+//  <div class="likes"><i class="fa fa-heart"></i> ${picture.likes}</div>
+//</a>

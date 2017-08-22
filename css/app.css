@@ -7090,11 +7090,6 @@ body {
     height: 400px;
     margin-bottom: 20px;
     position: relative; }
-    .user-page .picture-container .picture {
-      margin-bottom: 20px;
-      display: block;
-      max-width: 100%;
-      max-height: 100%; }
     .user-page .picture-container .likes {
       position: absolute;
       top: 0;
@@ -7111,3 +7106,19 @@ body {
     .user-page .picture-container .fa-heart {
       margin-right: 8px;
       display: inline-block; }
+
+.fa-heart-o {
+  color: #125688; }
+
+.fa-heart {
+  color: #f44336; }
+
+.modal img {
+  max-height: 100%;
+  max-width: 90%; }
+
+.modal .fa-heart {
+  display: inline-block; }
+
+.materialboxed.active {
+  max-height: 180%; }
