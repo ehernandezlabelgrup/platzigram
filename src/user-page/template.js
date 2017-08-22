@@ -1,8 +1,9 @@
-import yo from 'yo-yo'
-import layout from '../layout'
-import translate from '../translate'
+var yo = require('yo-yo');
+var layout = require('../layout');
+var translate = require('../translate').message;
                    
-export default function userPageTemplate(user){
+module.exports = function (user) {
+  console.log(user.pictures)
   var el =  yo `<div class="container user-page">
   <div class="row">
     <div class="col s12 m10 offset-m1 l8 offset-l2 center-align herading">
@@ -17,13 +18,14 @@ export default function userPageTemplate(user){
       </div>
     </div>
       <div class="row">
-        ${user.pictures.map(function (picture){
+        ${user.pictures.map(function (picture) {
+          
           return yo `<div class="col s12 m6 l4">
             <div class="picture-container">
               <img src="${picture.src}" class="picture">
               <div class="likes"><i class="fa fa-heart"></i> ${picture.likes}</div>
             </div>
-          </div>`
+          </div>`;
         })}
       </div>
   </div>
